@@ -10,7 +10,7 @@ categories: 运维
 
 简单的说Actions就是Github推出的CI工具，代码推送到Github后，可以触发一系列的动作。
 
-Github Pages，Githut给出的最简介绍，"Websites for you and your projects."
+Github Pages，Github给出的最简介绍，"Websites for you and your projects."
 
 ## Personal access tokens and repository's Secrets
 
