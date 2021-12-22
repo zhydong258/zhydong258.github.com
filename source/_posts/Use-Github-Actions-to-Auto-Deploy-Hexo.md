@@ -98,11 +98,13 @@ git push --set-upstream origin source
 
 ## 为什么用Actions
 
+<!-- more -->
+
 最开始的hexo环境和blog源码都是在本地的，使用hexo的deploy命令发布到到username.github.com仓库，这也没什么不好。后来，想在不同的电脑上去写blog，发现hexo的环境容易搭建，但是没有blog的源码，随在GitHub上建立名为Blog的仓库，用于同步不同电脑上的源码，也用于备份。
 
 这样只需要在安装好hexo环境的电脑上clone/pull下来Blog这个仓库就可以开始blog的编辑了。hexo new hexo generate hexo deploy,发布blog到username.github.com这个仓库，最后git push把blog的源码推送到GitHub中的Blog仓库。
 
-这样的工作流本来也凑合，但是想用Actions实现过程的自动化，也就是省略掉hexo generate和hexo deploy，所以增加了上面的workflows。最初的想法是push到Blog仓库后，触发Actions，然后自动deploy到username.github.com。Actions的yml文件到是比较好写的，网上的教程是利用ssh的私钥和公钥的方式，从Blog向username.github.com去部署，我不想采用这种方式，所以才出现了上面的[deploy.yml](#deploy.yml)中的实现方式和配置方式。
+这样的工作流本来也凑合，但是想用Actions实现过程的自动化，也就是省略掉hexo generate和hexo deploy，所以增加了上面的workflows。最初的想法是push到Blog仓库后，触发Actions，然后自动deploy到username.github.com。Actions的yml文件到是比较好写的，网上的教程是利用ssh的私钥和公钥的方式，从Blog向username.github.com去部署，我不想采用这种方式，所以才出现了上面的[deploy.yml](#deplo-yml)中的实现方式和配置方式。
 
 今天在看GitHub关于Pages的文档时，发现其可以配置source对应的branch和folder，不过folder只能是/(root)和/docs这个两种。我修改了hexo的config，然其把文件发布到docs下面，然后直接push到username.github.com，并在username.github.com的Pages中设置/docs。这样的方式好处是只用master分支就可以解决blog源码的备份和Pages的发布。
 
