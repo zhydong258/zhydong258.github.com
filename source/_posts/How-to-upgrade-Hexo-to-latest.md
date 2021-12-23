@@ -38,4 +38,4 @@ $ npm install --save
 大版本升级，问题多出现在_config.xml上，搜索下解决就好。
 
 ## NexT主题的升级
-直接从Github下载最新的主题，注意themes\next\_config.xml要自己修改了。
+直接从Github下载最新的主题，注意themes\next\\_config.xml要自己修改了。
