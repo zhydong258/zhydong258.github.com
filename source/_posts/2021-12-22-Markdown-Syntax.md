@@ -13,13 +13,18 @@ categories: 运维
 
 Include links to other posts.
 
-\{% post_path filename %\}
-
-\{% post_link filename \[title\] \[escape\] %\}
+{% codeblack %}
+{% post_path filename %}
+{% post_link filename [title] [escape] %}
+{% endcodeblock %}
 
 You can ignore permalink and folder information, like languages and dates, when using this tag.
 
-For instance: \{% post_link how-to-bake-a-cake %\}.
+For instance: 
+
+{% codeblack %}
+\{% post_link how-to-bake-a-cake %\}.
+{% endcodeblock %}
 
 This will work as long as the filename of the post is how-to-bake-a-cake.md, even if the post is located at source/posts/2015-02-my-family-holiday and has permalink 2018/en/how-to-bake-a-cake.
 
@@ -29,10 +34,27 @@ Post’s title and custom text are escaped by default. You can use the escape op
 
 For instance:
 
-Display title of the post.\{% post_link hexo-3-8-released %\}
+Display title of the post.
 
-Display custom text.\{% post_link hexo-3-8-released 'Link to a post' %\}
+{% codeblack %}
+{% post_link hexo-3-8-released %}
+{% endcodeblock %}
 
-Escape title.\{% post_link hexo-4-released 'How to use <b> tag in title' %\}, <b>会直接显示出来。
+Display custom text.
 
-Do not escape title.\{% post_link hexo-4-released '<b>bold</b> custom title' false %\} bold这个单词会加粗。
+{% codeblack %}
+{% post_link hexo-3-8-released 'Link to a post' %}
+{% endcodeblock %}
+
+Escape title.
+
+{% codeblack %}
+{% post_link hexo-4-released 'How to use <b> tag in title' %}
+{% endcodeblock %}
+\<b\>会直接显示出来。
+
+Do not escape title.
+{% codeblack %}
+{% post_link hexo-4-released '<b>bold</b> custom title' false %}
+{% endcodeblock %}
+bold这个单词会加粗。
