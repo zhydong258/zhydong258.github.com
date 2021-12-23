@@ -13,18 +13,18 @@ categories: 运维
 
 Include links to other posts.
 
-{% codeblock %}
-{{% post_path filename %}}
-{{% post_link filename [title] [escape] %}}
-{% endcodeblock %}
+```
+{% post_path filename %}
+{% post_link filename [title] [escape] %}
+```
 
 You can ignore permalink and folder information, like languages and dates, when using this tag.
 
 For instance: 
 
-{% codeblock %}
-{{% post_link how-to-bake-a-cake %}}
-{% endcodeblock %}
+```
+{% post_link how-to-bake-a-cake %}
+```
 
 This will work as long as the filename of the post is how-to-bake-a-cake.md, even if the post is located at source/posts/2015-02-my-family-holiday and has permalink 2018/en/how-to-bake-a-cake.
 
@@ -36,25 +36,25 @@ For instance:
 
 Display title of the post.
 
-{% codeblock %}
-{{% post_link hexo-3-8-released %}}
-{% endcodeblock %}
+```
+{% post_link hexo-3-8-released %}
+```
 
 Display custom text.
 
-{% codeblock %}
-{{% post_link hexo-3-8-released 'Link to a post' %}}
-{% endcodeblock %}
+```
+{% post_link hexo-3-8-released 'Link to a post' %}
+```
 
 Escape title.
 
-{% codeblock %}
+```
 {{% post_link hexo-4-released 'How to use <b> tag in title' %}}
-{% endcodeblock %}
+```
 \<b\>会直接显示出来。
 
 Do not escape title.
-{% codeblock %}
-{{% post_link hexo-4-released '<b>bold</b> custom title' false %}}
-{% endcodeblock %}
+```
+{% post_link hexo-4-released '<b>bold</b> custom title' false %}
+```
 bold这个单词会加粗。
