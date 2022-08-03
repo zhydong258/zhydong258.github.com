@@ -6,8 +6,7 @@
 
 * Quick summary
 
-Hexo的系统要在本地存放相关的文件，但是可发布到github的文件单独存放在其public文件中，
-为了保证在其他机器上也可以编辑博客，我把hexo的文件夹也上传到github了。
+利用Hexo和NeXT主题搭建的静态Blog。
 
 * Version
 [1.0.0]
@@ -15,11 +14,21 @@ Hexo的系统要在本地存放相关的文件，但是可发布到github的文�
 ### How do I get set up? ###
 
 * Summary of set up
-  
-Hexo和主题NexT的安装请直接参照官网的文档。
+
+从GitHub上clone源代码，并初始化和更新submodule。
+
+```
+git clone https://github.com/zhydong258/zhydong258.github.com.git blog.github
+cd blog.github
+git submodule init 
+git submodule update
+npm install
+```
+
 * Configuration
-  
+
 主题的配置请参照主题配置的文档。
+
 * Dependencies
 * Database configuration
 * How to run tests
