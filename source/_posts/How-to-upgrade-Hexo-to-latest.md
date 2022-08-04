@@ -7,6 +7,8 @@ categories: 运维
 
 今天又想起来自己在Github的博客了，从上面clone下来，重新安装了nvm和lts的node。发现hexo版本比较低，决定升级。
 
+首先，进入Hexo初始化的文件夹。
+
 ## 安装hexo-cli
 
 ``` bash
@@ -15,19 +17,21 @@ $ npm install -g hexo-cli
 
 ## 安装升级需要的package
 
+检查系统安装的插件是否需要升级。
+
 ``` bash
 $ npm install -g npm-check
 $ npm-check
 ```
-检查系统安装的插件是否需要升级。
+
+升级系统的所有插件。
 
 ``` bash
 $ npm install -g npm-upgrade
 $ npm-upgrade
 ```
-升级系统的所有插件。
 
-进入Hexo初始化的文件夹，重新install。
+重新install
 
 ``` bash
 $ rm -rf node_modules
