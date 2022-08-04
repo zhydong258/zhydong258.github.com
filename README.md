@@ -23,6 +23,10 @@ cd blog.github
 git submodule init 
 git submodule update
 npm install
+npm install -g hexo-cli
+hexo new <My New Post>
+# make some happen
+git push
 ```
 
 * Configuration
