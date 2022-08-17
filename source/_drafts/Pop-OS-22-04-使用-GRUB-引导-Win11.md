@@ -1,0 +1,52 @@
+---
+title: Pop_OS 22.04 使用 GRUB 引导 Win11
+date: 2022-08-17 09:01:21
+tags:
+categories:
+---
+
+## 起因
+
+公司虚拟机上使用的 Ubuntu 升级到 22.04 后，Dash to Dock 这个extension 就无法正常使用了，和 HP CQ45 上 Debian Testing升级到最新的版本后的情况是一样的，主要是升级到 GNOME 42 后，插件的无法兼容了，重新安装了 Dash to Dock for COSMIC 插件。好奇 COSMIC 是什么，就搜索了一下，发现是 System76 公司开发的 Pop!_OS 系统的桌面环境，还发现很多人在推荐 Pop!_OS 这个发行版，就决定试用一下。当然，这里又犯了爱折腾的坏毛病……
+
+## 安装
+
+官网下载 ISO ，rufus 制作启动优盘，电脑优盘启动，硬盘重新分区，CQ45 上有 Win11 和 Debain Testing 的双系统。原来是先安装的 Win11，硬盘是 UEFI+GPT 的格式，partition 2 是 EFI 分区，挂载点是 /boot/efi。原来的 EFI 是 300M的，而 Pop_OS 需要 500M 的，确定把这个分区先删除掉，重新进行分区。当时没有认识到，Win11 也是需要从这里启动的，这也直接导致后面 Win11 无法引导了。
+
+原始的 EFI 只有 315MB，如下图所示：
+![](EFI原始.png)
+
+重新调整 EFI 的分区，如下图所示：
+![](EFI重新分区后.png)
+
+## 问题1 - 无法进入 Windows
+
+后续的安装过程平淡无奇，第一次报了文件解压错误，安装失败，重新引导再来一次就成功了。拔掉优盘，引导系统，顺利进入 Pop_OS。不过问题是直接进到 GDM 的登录界面了，没有GRUB，没有可以选择 Windows 的地方。
+
+重启，进入 BIOS，改成 UEFI引导，关闭 Secure Boot ，还是直接进入 Pop_OS。
+
+## 问题1 - 解决
+
+原因是我在安装 Pop_OS 的时候，删除并重建了 EFI 分区，而新的 EFI 分区上没有 Windows 的启动文件，只需要重建就可以了。
+
+刚好手上有现成的 Win10 的优盘，优盘引导进入系统，选择“修复计算机”-“命令提示符”。
+
+``` shell
+diskpart # 进入diskpart工具
+list disk # 查看磁盘列表，通常是2个，一个是硬盘，一个是优盘
+select disk [num] # 选择磁盘
+list partition # 查看选定的磁盘分区
+select partition [num] # 选择 EFI 分区，通常是 卷2，要确认一下
+assign letter = [letter] # 给选定的分区分配一个盘符，例如 z
+exit # 退出 diskpart
+bcdboot c:\windows /s z: /f uefi /l zh-cn # 注意 c 盘是不是真正的 c 盘，z: 对应上面分配的盘符
+```
+
+具体可见微软文档的[BCDBoot命令行选项](https://docs.microsoft.com/zh-cn/windows-hardware/manufacture/desktop/bcdboot-command-line-options-techref-di?view=windows-11)。
+
+### 问题1 - 只能进入 Windows
+
+上述的修复过后，开机后直接进入 Windows，当然 CQ45 可以在开机时通过 ESC 进入选项，通过 F9 来选择进入的系统，但是为什么不能像 Ubuntu 那样通过 GRUB 来选择呢？进 BIOS 看看，通过下图可以看到，这货在 UEFI 下就没打算引导其他系统，就一个“操作系统的启动管理员”，钦定 Windows。
+
+![](UEFI启动管理员.png)
+
