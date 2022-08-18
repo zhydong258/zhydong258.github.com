@@ -57,7 +57,7 @@ marked:
   postAsset: true
 ```
 
-Once enabled, an asset image will be automatically resolved to its corresponding post’s path. For example, "image.jpg" is located at "/2020-01-02-foo/image.jpg", meaning it is an asset image of "/2020-01-02-foo/" post, `![](image.jpg)` will be rendered as `<img src="/2020-01-02-foo/image.jpg">`.
+Once enabled, an asset image will be automatically resolved to its corresponding post’s path. For example, "image.jpg" is located at "/2020/01/02/foo/image.jpg", meaning it is an asset image of "/2020/01/02/foo/" post, `![](image.jpg)` will be rendered as `<img src="/2020/01/02/foo/image.jpg">`.
 
 More info: [Writing](https://hexo.io/docs/writing.html)
 
