@@ -7,7 +7,7 @@ categories:
 
 ## 起因
 
-公司虚拟机上使用的 Ubuntu 升级到 22.04 后，Dash to Dock 这个extension 就无法正常使用了，和 HP CQ45 上 Debian Testing升级到最新的版本后的情况是一样的，主要是升级到 GNOME 42 后，插件的无法兼容了，重新安装了 Dash to Dock for COSMIC 插件。好奇 COSMIC 是什么，就搜索了一下，发现是 System76 公司开发的 Pop!_OS 系统的桌面环境，还发现很多人在推荐 Pop!_OS 这个发行版，就决定试用一下。当然，这里又犯了爱折腾的坏毛病……
+公司虚拟机上使用的 Ubuntu 升级到 22.04 后，Dash to Dock 这个extension 就无法正常使用了，和 HP CQ45 上 Debian Testing升级到最新的版本后的情况是一样的，主要是升级到 GNOME 42 后，插件无法兼容了，重新安装了 Dash to Dock for COSMIC 插件。好奇 COSMIC 是什么，就搜索了一下，发现是 System76 公司开发的 Pop!_OS 系统的桌面环境，还发现很多人在推荐 Pop!_OS 这个发行版，就决定试用一下。当然，这里又犯了爱折腾的坏毛病……
 
 ## 安装
 
@@ -44,9 +44,12 @@ bcdboot c:\windows /s z: /f uefi /l zh-cn # 注意 c 盘是不是真正的 c 盘
 
 具体可见微软文档的[BCDBoot命令行选项](https://docs.microsoft.com/zh-cn/windows-hardware/manufacture/desktop/bcdboot-command-line-options-techref-di?view=windows-11)。
 
-### 问题1 - 只能进入 Windows
+## 问题2 - 只能进入 Windows
 
 上述的修复过后，开机后直接进入 Windows，当然 CQ45 可以在开机时通过 ESC 进入选项，通过 F9 来选择进入的系统，但是为什么不能像 Ubuntu 那样通过 GRUB 来选择呢？进 BIOS 看看，通过下图可以看到，这货在 UEFI 下就没打算引导其他系统，就一个“操作系统的启动管理员”，钦定 Windows。
 
 ![](UEFI启动管理员.png)
 
+## 问题2 - 解决
+
+没有好的办法，
