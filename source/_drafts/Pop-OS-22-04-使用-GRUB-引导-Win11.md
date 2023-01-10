@@ -2,14 +2,14 @@
 title: Pop_OS 22.04 使用 GRUB 引导 Win11
 date: 2022-08-17 09:01:21
 tags:
-categories:
+categories: 运维
 ---
 
-## 起因
+## 0 起因
 
 公司虚拟机上使用的 Ubuntu 升级到 22.04 后，Dash to Dock 这个extension 就无法正常使用了，和 HP CQ45 上 Debian Testing升级到最新的版本后的情况是一样的，主要是升级到 GNOME 42 后，插件无法兼容了，重新安装了 Dash to Dock for COSMIC 插件。好奇 COSMIC 是什么，就搜索了一下，发现是 System76 公司开发的 Pop!_OS 系统的桌面环境，还发现很多人在推荐 Pop!_OS 这个发行版，就决定试用一下。当然，这里又犯了爱折腾的坏毛病……
 
-## 安装
+## 1 安装
 
 官网下载 ISO ，rufus 制作启动优盘，电脑优盘启动，硬盘重新分区，CQ45 上有 Win11 和 Debain Testing 的双系统。原来是先安装的 Win11，硬盘是 UEFI+GPT 的格式，partition 2 是 EFI 分区，挂载点是 /boot/efi。原来的 EFI 是 300M的，而 Pop_OS 需要 500M 的，确定把这个分区先删除掉，重新进行分区。当时没有认识到，Win11 也是需要从这里启动的，这也直接导致后面 Win11 无法引导了。
 
@@ -19,13 +19,15 @@ categories:
 重新调整 EFI 的分区，如下图所示：
 ![](EFI重新分区后.png)
 
-## 问题1 - 无法进入 Windows
+## 2 无法引导
+
+### 2.1 问题1 - 无法进入 Windows
 
 后续的安装过程平淡无奇，第一次报了文件解压错误，安装失败，重新引导再来一次就成功了。拔掉优盘，引导系统，顺利进入 Pop_OS。不过问题是直接进到 GDM 的登录界面了，没有GRUB，没有可以选择 Windows 的地方。
 
 重启，进入 BIOS，改成 UEFI引导，关闭 Secure Boot ，还是直接进入 Pop_OS。
 
-## 问题1 - 解决
+### 2.2 问题1 - 解决
 
 原因是我在安装 Pop_OS 的时候，删除并重建了 EFI 分区，而新的 EFI 分区上没有 Windows 的启动文件，只需要重建就可以了。
 
@@ -44,12 +46,59 @@ bcdboot c:\windows /s z: /f uefi /l zh-cn # 注意 c 盘是不是真正的 c 盘
 
 具体可见微软文档的[BCDBoot命令行选项](https://docs.microsoft.com/zh-cn/windows-hardware/manufacture/desktop/bcdboot-command-line-options-techref-di?view=windows-11)。
 
-## 问题2 - 只能进入 Windows
+### 2.3 问题2 - 只能进入 Windows
 
 上述的修复过后，开机后直接进入 Windows，当然 CQ45 可以在开机时通过 ESC 进入选项，通过 F9 来选择进入的系统，但是为什么不能像 Ubuntu 那样通过 GRUB 来选择呢？进 BIOS 看看，通过下图可以看到，这货在 UEFI 下就没打算引导其他系统，就一个“操作系统的启动管理员”，钦定 Windows。
 
 ![](UEFI启动管理员.png)
 
-## 问题2 - 解决
+### 2.4 问题2 - 解决
 
-没有好的办法，
+没有好的办法，只能取消 Windows Boot Manager，可以使用免费的 DiskGenius。
+
+![](工具-设置BIOS启动项.png)
+
+![](设置UEFI-BIOS启动项.png)
+
+取消了 Windows 的启动管理器，正常开机进入 Pop_OS 的引导界面。
+
+## 3 Systemd-boot 和 GRUB2
+
+### 3.1 systemd-boot 
+
+Pop_OS 使用 systemd-boot 来进行系统的引导，
+
+### 3.2 GRUB2
+
+#### 3.2.1 安装
+
+``` shell
+sudo apt install grub-efi grub2-common grub-customizer
+```
+
+关于 grub-customizer 的安装，请参考 [How to Install Grub Customizer on Ubuntu](https://itsfoss.com/install-grub-customizer-ubuntu/)。
+
+#### 3.3 安装 grub 
+
+安装 grub 到 /boot/grub 中去。
+```
+sudo grub-install
+```
+
+使用 EFI 去引导 GRUB。
+
+```
+sudo cp /boot/grub/x86_64-efi/grub.efi /boot/efi/EFI/pop/grubx64.efi
+```
+{% note warging %}
+64 位的系统，需要修改位 grubx64.efi。efi 在 64位系统下，默认只会引导后缀为 x64 的 efi 文件。
+{% note %}
+
+## 参考
+
+1. [PopOS 20.04 安装 Grub 引导 Win 11 + Linux 双系统并配置主题](https://taurusxin.com/popos-grub/)
+2. [How to Install Grub Customizer on Ubuntu](https://itsfoss.com/install-grub-customizer-ubuntu/)
+3. 
+
+
+

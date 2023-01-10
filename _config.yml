@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 让笔记有点价值
-subtitle: 笔记的整理不产生任何价值，其唯一产生价值的方式是有目的的写作！
-description:
-keywords:
+title: RTWL
+subtitle: READ-THINK-WRITE-LOOP
+description: 阅读不会带来改变，思考才会；思考不会带来改变，写作才会；
+keywords: Read,Think,Write
 author: Ethan Dong 
 language: zh-CN
 timezone:
