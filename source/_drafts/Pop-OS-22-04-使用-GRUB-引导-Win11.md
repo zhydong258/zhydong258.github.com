@@ -92,13 +92,12 @@ sudo cp /boot/grub/x86_64-efi/grub.efi /boot/efi/EFI/pop/grubx64.efi
 ```
 {% note warging %}
 64 位的系统，需要修改位 grubx64.efi。efi 在 64位系统下，默认只会引导后缀为 x64 的 efi 文件。
-{% note %}
+{% endnote %}
 
 ## 参考
 
 1. [PopOS 20.04 安装 Grub 引导 Win 11 + Linux 双系统并配置主题](https://taurusxin.com/popos-grub/)
 2. [How to Install Grub Customizer on Ubuntu](https://itsfoss.com/install-grub-customizer-ubuntu/)
-3. 
 
 
 

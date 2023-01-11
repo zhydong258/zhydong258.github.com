@@ -51,6 +51,11 @@ $ git clone https://github.com/next-theme/hexo-theme-next themes/next
 #### Add NexT as git submodule
 blog本身的源码是用git管理的，所以NexT的添加，需要使用submodule的方式。
 `git submodule add https://github.com/next-theme/hexo-theme-next themes/next`
+因为是使用 submodule 的缘故，有新版本需要更新 NexT 的时候，一定要进入NexT的文件夹。
+```
+cd themes/next
+git pull origin master
+```
 {% endnote %}
 
 
