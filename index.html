@@ -19,12 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zhydong258.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.14.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="让笔记有点价值">
+    <meta name="description" content="阅读不会带来改变，思考才会；思考不会带来改变，写作才会；">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Personal Interactive Shell">
 <meta property="og:url" content="https://zhydong258.github.io/index.html">
-<meta property="og:site_name" content="让笔记有点价值">
+<meta property="og:site_name" content="Personal Interactive Shell">
+<meta property="og:description" content="阅读不会带来改变，思考才会；思考不会带来改变，写作才会；">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Ethan Dong">
+<meta property="article:tag" content="Read,Think,Write">
 <meta name="twitter:card" content="summary">
 
 
@@ -35,7 +38,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>让笔记有点价值</title>
+<title>Personal Interactive Shell</title>
   
 
 
@@ -68,10 +71,10 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">让笔记有点价值</h1>
+      <h1 class="site-title">Personal Interactive Shell</h1>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">笔记的整理不产生任何价值，其唯一产生价值的方式是有目的的写作！</p>
+      <p class="site-subtitle" itemprop="description">Read, Think, Write and Loop</p>
   </div>
 
   <div class="site-nav-right">
@@ -116,7 +119,7 @@
     <img class="site-author-image" itemprop="image" alt="Ethan Dong"
       src="/uploads/avatar/octacat.gif">
   <p class="site-author-name" itemprop="name">Ethan Dong</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">阅读不会带来改变，思考才会；思考不会带来改变，写作才会；</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
@@ -178,12 +181,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="让笔记有点价值">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="Personal Interactive Shell">
+      <meta itemprop="description" content="阅读不会带来改变，思考才会；思考不会带来改变，写作才会；">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 让笔记有点价值">
+      <meta itemprop="name" content="undefined | Personal Interactive Shell">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -217,7 +220,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2k</span>
+      <span>2.1k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -306,8 +309,8 @@
 
 <h3 id="Use-git"><a href="#Use-git" class="headerlink" title="Use git"></a>Use git</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/next-theme/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
 
-<div class="note warning"><h4 id="Add-NexT-as-git-submodule"><a href="#Add-NexT-as-git-submodule" class="headerlink" title="Add NexT as git submodule"></a>Add NexT as git submodule</h4><p>blog本身的源码是用git管理的，所以NexT的添加，需要使用submodule的方式。<br><code>git submodule add https://github.com/next-theme/hexo-theme-next themes/next</code></p>
-</div>
+<div class="note warning"><h4 id="Add-NexT-as-git-submodule"><a href="#Add-NexT-as-git-submodule" class="headerlink" title="Add NexT as git submodule"></a>Add NexT as git submodule</h4><p>blog本身的源码是用git管理的，所以NexT的添加，需要使用submodule的方式。<br><code>git submodule add https://github.com/next-theme/hexo-theme-next themes/next</code><br>因为是使用 submodule 的缘故，有新版本需要更新 NexT 的时候，一定要进入NexT的文件夹。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd themes/next</span><br><span class="line">git pull origin master</span><br></pre></td></tr></table></figure></div>
 
 
 <h2 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h2><p>How to configure Hexo and NexT? The traditional approach is to store some options in site config file and other options in theme config file. This approach is applicable, but it is not smooth to update NexT theme from pulling or downloading new releases.</p>
@@ -353,12 +356,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="让笔记有点价值">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="Personal Interactive Shell">
+      <meta itemprop="description" content="阅读不会带来改变，思考才会；思考不会带来改变，写作才会；">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 让笔记有点价值">
+      <meta itemprop="name" content="undefined | Personal Interactive Shell">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -480,12 +483,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="让笔记有点价值">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="Personal Interactive Shell">
+      <meta itemprop="description" content="阅读不会带来改变，思考才会；思考不会带来改变，写作才会；">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 让笔记有点价值">
+      <meta itemprop="name" content="undefined | Personal Interactive Shell">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -590,12 +593,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="让笔记有点价值">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="Personal Interactive Shell">
+      <meta itemprop="description" content="阅读不会带来改变，思考才会；思考不会带来改变，写作才会；">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 让笔记有点价值">
+      <meta itemprop="name" content="undefined | Personal Interactive Shell">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -696,12 +699,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="让笔记有点价值">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="Personal Interactive Shell">
+      <meta itemprop="description" content="阅读不会带来改变，思考才会；思考不会带来改变，写作才会；">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 让笔记有点价值">
+      <meta itemprop="name" content="undefined | Personal Interactive Shell">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -789,12 +792,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="让笔记有点价值">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="Personal Interactive Shell">
+      <meta itemprop="description" content="阅读不会带来改变，思考才会；思考不会带来改变，写作才会；">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 让笔记有点价值">
+      <meta itemprop="name" content="undefined | Personal Interactive Shell">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -910,12 +913,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="让笔记有点价值">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="Personal Interactive Shell">
+      <meta itemprop="description" content="阅读不会带来改变，思考才会；思考不会带来改变，写作才会；">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 让笔记有点价值">
+      <meta itemprop="name" content="undefined | Personal Interactive Shell">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -1006,12 +1009,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="让笔记有点价值">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="Personal Interactive Shell">
+      <meta itemprop="description" content="阅读不会带来改变，思考才会；思考不会带来改变，写作才会；">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 让笔记有点价值">
+      <meta itemprop="name" content="undefined | Personal Interactive Shell">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -1102,12 +1105,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="让笔记有点价值">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="Personal Interactive Shell">
+      <meta itemprop="description" content="阅读不会带来改变，思考才会；思考不会带来改变，写作才会；">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 让笔记有点价值">
+      <meta itemprop="name" content="undefined | Personal Interactive Shell">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -1201,12 +1204,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="让笔记有点价值">
-      <meta itemprop="description" content="">
+      <meta itemprop="name" content="Personal Interactive Shell">
+      <meta itemprop="description" content="阅读不会带来改变，思考才会；思考不会带来改变，写作才会；">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 让笔记有点价值">
+      <meta itemprop="name" content="undefined | Personal Interactive Shell">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
