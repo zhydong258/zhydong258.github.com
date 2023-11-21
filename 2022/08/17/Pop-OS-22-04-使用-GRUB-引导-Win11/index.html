@@ -14,10 +14,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"zhydong258.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhydong258.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="0 起因公司虚拟机上使用的 Ubuntu 升级到 22.04 后，Dash to Dock 这个extension 就无法正常使用了，和 HP CQ45 上 Debian Testing升级到最新的版本后的情况是一样的，主要是升级到 GNOME 42 后，插件无法兼容了，重新安装了 Dash to Dock for COSMIC 插件。好奇 COSMIC 是什么，就搜索了一下，发现是 System">
 <meta property="og:type" content="article">
@@ -230,7 +230,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.9k</span>
+      <span>2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -247,8 +247,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <h2 id="0-起因"><a href="#0-起因" class="headerlink" title="0 起因"></a>0 起因</h2><p>公司虚拟机上使用的 Ubuntu 升级到 22.04 后，Dash to Dock 这个extension 就无法正常使用了，和 HP CQ45 上 Debian Testing升级到最新的版本后的情况是一样的，主要是升级到 GNOME 42 后，插件无法兼容了，重新安装了 Dash to Dock for COSMIC 插件。好奇 COSMIC 是什么，就搜索了一下，发现是 System76 公司开发的 Pop!_OS 系统的桌面环境，还发现很多人在推荐 Pop!_OS 这个发行版，就决定试用一下。当然，这里又犯了爱折腾的坏毛病……</p>
+    <div class="post-body" itemprop="articleBody"><h2 id="0-起因"><a href="#0-起因" class="headerlink" title="0 起因"></a>0 起因</h2><p>公司虚拟机上使用的 Ubuntu 升级到 22.04 后，Dash to Dock 这个extension 就无法正常使用了，和 HP CQ45 上 Debian Testing升级到最新的版本后的情况是一样的，主要是升级到 GNOME 42 后，插件无法兼容了，重新安装了 Dash to Dock for COSMIC 插件。好奇 COSMIC 是什么，就搜索了一下，发现是 System76 公司开发的 Pop!_OS 系统的桌面环境，还发现很多人在推荐 Pop!_OS 这个发行版，就决定试用一下。当然，这里又犯了爱折腾的坏毛病……</p>
 <h2 id="1-安装"><a href="#1-安装" class="headerlink" title="1 安装"></a>1 安装</h2><p>官网下载 ISO ，rufus 制作启动优盘，电脑优盘启动，硬盘重新分区，CQ45 上有 Win11 和 Debain Testing 的双系统。原来是先安装的 Win11，硬盘是 UEFI+GPT 的格式，partition 2 是 EFI 分区，挂载点是 &#x2F;boot&#x2F;efi。原来的 EFI 是 300M的，而 Pop_OS 需要 500M 的，确定把这个分区先删除掉，重新进行分区。当时没有认识到，Win11 也是需要从这里启动的，这也直接导致后面 Win11 无法引导了。</p>
 <p>原始的 EFI 只有 315MB，如下图所示：<br><img src="/2022/08/17/Pop-OS-22-04-%E4%BD%BF%E7%94%A8-GRUB-%E5%BC%95%E5%AF%BC-Win11/EFI%E5%8E%9F%E5%A7%8B.png"></p>
 <p>重新调整 EFI 的分区，如下图所示：<br><img src="/2022/08/17/Pop-OS-22-04-%E4%BD%BF%E7%94%A8-GRUB-%E5%BC%95%E5%AF%BC-Win11/EFI%E9%87%8D%E6%96%B0%E5%88%86%E5%8C%BA%E5%90%8E.png"></p>
@@ -265,7 +264,7 @@
 <p><img src="/2022/08/17/Pop-OS-22-04-%E4%BD%BF%E7%94%A8-GRUB-%E5%BC%95%E5%AF%BC-Win11/%E5%B7%A5%E5%85%B7-%E8%AE%BE%E7%BD%AEBIOS%E5%90%AF%E5%8A%A8%E9%A1%B9.png"></p>
 <p><img src="/2022/08/17/Pop-OS-22-04-%E4%BD%BF%E7%94%A8-GRUB-%E5%BC%95%E5%AF%BC-Win11/%E8%AE%BE%E7%BD%AEUEFI-BIOS%E5%90%AF%E5%8A%A8%E9%A1%B9.jpg"></p>
 <p>取消了 Windows 的启动管理器，正常开机进入 Pop_OS 的引导界面。</p>
-<h2 id="3-Systemd-boot-和-GRUB2"><a href="#3-Systemd-boot-和-GRUB2" class="headerlink" title="3 Systemd-boot 和 GRUB2"></a>3 Systemd-boot 和 GRUB2</h2><h3 id="3-1-systemd-boot"><a href="#3-1-systemd-boot" class="headerlink" title="3.1 systemd-boot"></a>3.1 systemd-boot</h3><p>Pop_OS 使用 systemd-boot 来进行系统的引导，</p>
+<h2 id="3-Systemd-boot-和-GRUB2"><a href="#3-Systemd-boot-和-GRUB2" class="headerlink" title="3 Systemd-boot 和 GRUB2"></a>3 Systemd-boot 和 GRUB2</h2><h3 id="3-1-systemd-boot"><a href="#3-1-systemd-boot" class="headerlink" title="3.1 systemd-boot"></a>3.1 systemd-boot</h3><p>Pop_OS 使用 systemd-boot 来进行系统的引导，systemd 仅适合单系统引导，双系统引导就无法完成，因为其无法识别在多个硬盘上的不同分区的引导加载器，除非将 Windows 分区上的 esp 文件复制到 Linux esp 下，新手不建议折腾，直接根据本教程安装 grub 引导即可。</p>
 <h3 id="3-2-GRUB2"><a href="#3-2-GRUB2" class="headerlink" title="3.2 GRUB2"></a>3.2 GRUB2</h3><h4 id="3-2-1-安装"><a href="#3-2-1-安装" class="headerlink" title="3.2.1 安装"></a>3.2.1 安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install grub-efi grub2-common grub-customizer</span><br></pre></td></tr></table></figure>
 
 <p>关于 grub-customizer 的安装，请参考 <a target="_blank" rel="noopener" href="https://itsfoss.com/install-grub-customizer-ubuntu/">How to Install Grub Customizer on Ubuntu</a>。</p>
@@ -315,7 +314,7 @@
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2021/12/23/Update-NexT-Theme-to-v8/" rel="prev" title="Update NexT Theme to v8">
-                  <i class="fa fa-chevron-left"></i> Update NexT Theme to v8
+                  <i class="fa fa-angle-left"></i> Update NexT Theme to v8
                 </a>
             </div>
             <div class="post-nav-item">
@@ -336,15 +335,14 @@
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 2016 – 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Ethan Dong</span>
-</div>
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ethan Dong</span>
+  </div>
 <div class="wordcount">
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
@@ -390,6 +388,8 @@
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
   
+
+
 
 
 

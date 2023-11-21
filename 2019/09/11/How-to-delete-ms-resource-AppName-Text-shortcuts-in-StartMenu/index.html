@@ -14,10 +14,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"zhydong258.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhydong258.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="原文出处如下：“找不到了，反正就是在microsoft的问答上看到的”引用的原文如下：For anyone who want to remove ms-resource:AppName&#x2F;Text, here’s a solution:https:&#x2F;&#x2F;gist.github.com&#x2F;DoubleLabyrinth&#x2F;ffae94cb9444bbdae1d11deeaa247310 All y">
 <meta property="og:type" content="article">
@@ -240,8 +240,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-        <p>原文出处如下：<br>“找不到了，反正就是在microsoft的问答上看到的”<br>引用的原文如下：<br>For anyone who want to remove ms-resource:AppName&#x2F;Text, here’s a solution:<br><a target="_blank" rel="noopener" href="https://gist.github.com/DoubleLabyrinth/ffae94cb9444bbdae1d11deeaa247310">https://gist.github.com/DoubleLabyrinth/ffae94cb9444bbdae1d11deeaa247310</a></p>
+    <div class="post-body" itemprop="articleBody"><p>原文出处如下：<br>“找不到了，反正就是在microsoft的问答上看到的”<br>引用的原文如下：<br>For anyone who want to remove ms-resource:AppName&#x2F;Text, here’s a solution:<br><a target="_blank" rel="noopener" href="https://gist.github.com/DoubleLabyrinth/ffae94cb9444bbdae1d11deeaa247310">https://gist.github.com/DoubleLabyrinth/ffae94cb9444bbdae1d11deeaa247310</a></p>
 <p>All you need is this:<br>Run Powershell with Admin privilege<br>On the prompt, run this command:<br>Get-AppxPackage -all <em>HolographicFirstRun</em> | Remove-AppPackage -AllUsers<br>Open Task manager, kill explorer.exe (keep the powershell console open)<br>Back on the prompt, type:<br>cd $Env:localappdata\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy<br>If the previous command succesfully put you on AppData\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy directory inside your profile dir, then run:<br>Remove-Item -Recurse -Force .\TempState<br>Start explorer.exe back up from task manager (File -&gt; New Task)<br>The rogue start menu item should be gone.</p>
 
     </div>
@@ -277,12 +276,12 @@
           <div class="post-nav">
             <div class="post-nav-item">
                 <a href="/2016/12/27/quick-start-for-hexo/" rel="prev" title="Quick Start for Hexo">
-                  <i class="fa fa-chevron-left"></i> Quick Start for Hexo
+                  <i class="fa fa-angle-left"></i> Quick Start for Hexo
                 </a>
             </div>
             <div class="post-nav-item">
                 <a href="/2020/12/04/How-to-upgrade-Hexo-to-latest/" rel="next" title="How to upgrade Hexo to latest?">
-                  How to upgrade Hexo to latest? <i class="fa fa-chevron-right"></i>
+                  How to upgrade Hexo to latest? <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -301,15 +300,14 @@
   <footer class="footer">
     <div class="footer-inner">
 
-
-<div class="copyright">
-  &copy; 2016 – 
-  <span itemprop="copyrightYear">2023</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Ethan Dong</span>
-</div>
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ethan Dong</span>
+  </div>
 <div class="wordcount">
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
@@ -355,6 +353,8 @@
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
 
   
+
+
 
 
 
