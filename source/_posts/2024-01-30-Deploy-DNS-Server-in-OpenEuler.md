@@ -104,8 +104,8 @@ $TTL 86400
 
 ```
 sudo named-checkconf /etc/named.conf
-sudo named-checkzone forward.fedora.local /var/named/forward.fedora.local
-sudo named-checkzone reverse.fedora.local /var/named/reverse.fedora.local
+sudo named-checkzone forward.cnty.com /var/named/forward.cnty.com
+sudo named-checkzone reverse.cnty.com /var/named/reverse.cnty.com
 ```
 
 ## 5 配置防火墙
