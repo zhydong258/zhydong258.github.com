@@ -122,7 +122,7 @@ sudo systemctl enable named
 sudo systemctl start named
 ```
 
-## 7 测试
+## 7 测试 DNS 服务
 
 ```
 dig nj-vcsa.cnty.com
