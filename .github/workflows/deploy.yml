@@ -26,7 +26,12 @@ jobs:
         run: |
           git submodule init
           git submodule update --remote
-      
+     
+      # 修复 Github Actions 部署时导致文章的更新时间错误
+      # https://aizhiqian.github.io/posts/e4c1b222/ 
+      - name: Restore file modification time
+        run: find source -name '*.md' | while read file; do touch -d "$(git log -1 --format="@%ct" "$file")" "$file"; done
+          
       # 生成静态文件
       - name: 🔧 Install and Build
         run: |
