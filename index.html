@@ -1092,7 +1092,7 @@
 
 <p>上面的命令会建立一篇文章的草稿，放到 source&#x2F;_draft 中，可以使用 publish 发布到 source&#x2F;_posts 中。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo publish &lt;title&gt;</span><br></pre></td></tr></table></figure>
-
+<p>&lt;% note warning %&gt;<br>这里的title，要和 _draft 中的文件名一直，可能需要把空格变成“-”。<br>&lt;% endnote %&gt;</p>
 <h3 id="Asset-资源文件夹"><a href="#Asset-资源文件夹" class="headerlink" title="Asset 资源文件夹"></a>Asset 资源文件夹</h3><p>资源（Asset）代表 source 文件夹中除了文章以外的所有文件，例如图片、CSS、JS 文件等。比方说，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 source&#x2F;images 文件夹中。然后通过类似于 <code>![](/images/image.jpg)</code> 的方法访问它们。</p>
 <p>对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。这个稍微有些复杂但是管理资源非常方便的功能可以通过将 config.yml 文件中的 post_asset_folder 选项设为 true 来打开。</p>
 <h4 id="Embedding-an-image-using-markdown"><a href="#Embedding-an-image-using-markdown" class="headerlink" title="Embedding an image using markdown"></a>Embedding an image using markdown</h4><p>hexo-renderer-marked 3.1.0 introduced a new option that allows you to embed an image in markdown without using asset_img tag plugin.</p>
