@@ -36,6 +36,9 @@ hexo new draft <title>
 ``` bash
 hexo publish <title>
 ```
+<% note warning %>
+这里的title，要和 _draft 中的文件名一直，可能需要把空格变成“-”。
+<% endnote %>
 
 ### Asset 资源文件夹
 
