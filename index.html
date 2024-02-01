@@ -1012,7 +1012,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-17 10:40:47" itemprop="dateModified" datetime="2022-08-17T10:40:47+00:00">2022-08-17</time>
+      <time title="修改时间：2024-02-01 05:14:18" itemprop="dateModified" datetime="2024-02-01T05:14:18+00:00">2024-02-01</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1030,7 +1030,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>773</span>
+      <span>774</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1048,8 +1048,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>原文出处如下：<br>“找不到了，反正就是在microsoft的问答上看到的”<br>引用的原文如下：<br>For anyone who want to remove ms-resource:AppName&#x2F;Text, here’s a solution:<br><a target="_blank" rel="noopener" href="https://gist.github.com/DoubleLabyrinth/ffae94cb9444bbdae1d11deeaa247310">https://gist.github.com/DoubleLabyrinth/ffae94cb9444bbdae1d11deeaa247310</a></p>
-<p>All you need is this:<br>Run Powershell with Admin privilege<br>On the prompt, run this command:<br>Get-AppxPackage -all <em>HolographicFirstRun</em> | Remove-AppPackage -AllUsers<br>Open Task manager, kill explorer.exe (keep the powershell console open)<br>Back on the prompt, type:<br>cd $Env:localappdata\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy<br>If the previous command succesfully put you on AppData\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy directory inside your profile dir, then run:<br>Remove-Item -Recurse -Force .\TempState<br>Start explorer.exe back up from task manager (File -&gt; New Task)<br>The rogue start menu item should be gone.</p>
+          <p>原文出处如下：<br>“找不到了，反正就是在microsoft的问答上看到的”</p>
+<p>引用的原文如下：<br>For anyone who want to remove <code>ms-resource:AppName/Text</code>, here’s a solution:<br><a target="_blank" rel="noopener" href="https://gist.github.com/DoubleLabyrinth/ffae94cb9444bbdae1d11deeaa247310">https://gist.github.com/DoubleLabyrinth/ffae94cb9444bbdae1d11deeaa247310</a></p>
+<p>All you need is this:<br>Run <code>Powershell</code> with Admin privilege<br>On the prompt, run this command:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Get-AppxPackage -all *HolographicFirstRun* | Remove-AppPackage -AllUsers</span><br></pre></td></tr></table></figure>
+<p>Open Task manager, kill <code>explorer.exe</code> (keep the powershell console open)<br>Back on the prompt, type:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd $Env:localappdata\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy</span><br></pre></td></tr></table></figure>
+<p>If the previous command succesfully put you on <code>AppData\Local\Packages\Microsoft.Windows.StartMenuExperienceHost_cw5n1h2txyewy</code> directory inside your profile dir, then run:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Remove-Item -Recurse -Force .\TempState\</span><br></pre></td></tr></table></figure>
+<p>Start <code>explorer.exe</code> back up from task manager (File -&gt; New Task)<br>The rogue start menu item should be gone.</p>
 
       
     </div>
