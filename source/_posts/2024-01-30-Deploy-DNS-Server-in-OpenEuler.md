@@ -76,6 +76,8 @@ nj-gitlab        IN  A   192.168.7.121
 nj-nextcloud     IN  A   192.168.7.45
 nj-exsi1         IN  A   192.168.6.252
 nj-exsi2         IN  A   192.168.7.99
+oa               IN  A   192.168.x.x
+www              IN  CNAME  cnty.k17.nb35.net
 ```
 ### 3.3 /var/named/reverse.cnty.com
 

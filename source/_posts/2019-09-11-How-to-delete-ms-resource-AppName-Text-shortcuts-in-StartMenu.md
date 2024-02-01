@@ -27,5 +27,5 @@ If the previous command succesfully put you on `AppData\Local\Packages\Microsoft
 ```
 Remove-Item -Recurse -Force .\TempState\
 ```
-Start `explorer.exe` back up from task manager (File -> New Task)
+Start `explorer.exe` back up from task manager (`File -> New Task`)
 The rogue start menu item should be gone.
