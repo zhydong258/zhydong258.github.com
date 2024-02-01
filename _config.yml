@@ -3,9 +3,9 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Personal Interactive Shell
+title: 个人交互外壳
 subtitle: Read, Think, Write and Loop
-description: 阅读不会带来改变，思考才会；思考不会带来改变，写作才会；
+description: Personal Interactive Shell 阅读不会带来改变，思考才会；思考不会带来改变，写作才会；
 keywords: Read,Think,Write
 author: Zhiyuan 
 language: zh-CN
