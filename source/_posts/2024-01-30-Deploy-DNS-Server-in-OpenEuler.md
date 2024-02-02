@@ -77,7 +77,7 @@ nj-nextcloud     IN  A   192.168.7.45
 nj-exsi1         IN  A   192.168.6.252
 nj-exsi2         IN  A   192.168.7.99
 oa               IN  A   192.168.x.x
-www              IN  CNAME  cnty.k17.nb35.net
+www              IN  A   115.231.8.xxx
 ```
 ### 3.3 /var/named/reverse.cnty.com
 
@@ -136,6 +136,3 @@ dig -x 192.168.7.44
 1. [如何使用 bind 设置 DNS 服务器](https://zhuanlan.zhihu.com/p/113302346)
 2. [3. Configurations and Zone Files](https://bind9.readthedocs.io/en/latest/chapter3.html)
 3. [DNS 多网段的反向记录](https://blog.csdn.net/weixin_34037515/article/details/93043175)
-
-
-
