@@ -1,10 +1,9 @@
 ---
 title: Deploy DNS Server in OpenEuler
-tags: [DNS, OpenEuler] 
+tags: [DNS, OpenEuler]
 date: 2024-01-30 18:20:32
 categories: 运维
 ---
-
 
 ## 0 起因
 
@@ -28,9 +27,9 @@ nj-exsi2.cnty.com      192.168.7.99
 
 ## 2 安装 DNS Server
 
-使用 `dnf` 安装 BIND(Berkeley Internet Name Domain)  
+使用 `dnf` 安装 BIND(Berkeley Internet Name Domain)
 
-``` shell
+```shell
 sudo dnf install bind bind-utils -y
 ```
 
@@ -55,7 +54,7 @@ zone "168.192.in-addr.arpa" IN {
 
 include "/etc/named.rfc1912.zones";
 include "/etc/named.root.key";
-``` 
+```
 
 ### 3.2 /var/nanmed/forward.cnty.com
 
@@ -79,6 +78,7 @@ nj-exsi2         IN  A   192.168.7.99
 oa               IN  A   192.168.x.x
 www              IN  A   115.231.8.xxx
 ```
+
 ### 3.3 /var/named/reverse.cnty.com
 
 ```
@@ -116,7 +116,7 @@ sudo named-checkzone reverse.cnty.com /var/named/reverse.cnty.com
 sudo firewall-cmd --add-service=dns --perm
 sudo firewall-cmd --reload
 ```
-  
+
 ## 6 启动 DNS Server
 
 ```
