@@ -14,10 +14,10 @@
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css" integrity="sha256-wiz7ZSCn/btzhjKDQBms9Hx4sSeUYsDrTLg7roPstac=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"zhydong258.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhydong258.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"tomorrow-night"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="Personal Interactive Shell 阅读不会带来改变，思考才会；思考不会带来改变，写作才会；">
 <meta property="og:type" content="website">
@@ -34,7 +34,6 @@
 <link rel="canonical" href="https://zhydong258.github.io/">
 
 
-
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
@@ -43,6 +42,23 @@
 
 
 
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
 
 
 
@@ -125,7 +141,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -136,7 +152,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -173,6 +189,123 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://zhydong258.github.io/2025/04/12/Start-kernel-and-rootfs-within-qemu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar/octacat.gif">
+      <meta itemprop="name" content="Zhiyuan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人交互外壳">
+      <meta itemprop="description" content="Personal Interactive Shell 阅读不会带来改变，思考才会；思考不会带来改变，写作才会；">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content=" | 个人交互外壳">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2025/04/12/Start-kernel-and-rootfs-within-qemu/" class="post-title-link" itemprop="url">Start kernel and rootfs within qemu</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-04-12 20:26:41 / 修改时间：14:14:56" itemprop="dateCreated datePublished" datetime="2025-04-12T20:26:41+00:00">2025-04-12</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="1-Fedora-gcc-qemu-kernel-busybox-版本"><a href="#1-Fedora-gcc-qemu-kernel-busybox-版本" class="headerlink" title="1 Fedora gcc qemu kernel busybox 版本"></a>1 Fedora gcc qemu kernel busybox 版本</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">❯ fastfetch</span><br><span class="line">             .&#x27;,;::::;,&#x27;.                 zyuan@matebook</span><br><span class="line">         .&#x27;;:cccccccccccc:;,.             --------------</span><br><span class="line">      .;cccccccccccccccccccccc;.          OS: Fedora Linux 41 (Workstation Edition) x86_64</span><br><span class="line">    .:cccccccccccccccccccccccccc:.        Host: MRG-WXX (M1010)</span><br><span class="line">  .;ccccccccccccc;.:dddl:.;ccccccc;.      Kernel: Linux 6.13.10-200.fc41.x86_64</span><br><span class="line"> .:ccccccccccccc;OWMKOOXMWd;ccccccc:.     Uptime: 6 hours, 56 mins</span><br><span class="line">.:ccccccccccccc;KMMc;cc;xMMc;ccccccc:.    Packages: 2258 (rpm), 15 (flatpak)</span><br><span class="line">,cccccccccccccc;MMM.;cc;;WW:;cccccccc,    Shell: bash 5.2.32</span><br><span class="line">:cccccccccccccc;MMM.;cccccccccccccccc:    Display (CSO1408): 3120x2080 @ 90 Hz (as 1782x1188) in 14&quot; [Built-in]</span><br><span class="line">:ccccccc;oxOOOo;MMM000k.;cccccccccccc:    DE: GNOME 47.5</span><br><span class="line">cccccc;0MMKxdd:;MMMkddc.;cccccccccccc;    WM: Mutter (Wayland)</span><br><span class="line">ccccc;XMO&#x27;;cccc;MMM.;cccccccccccccccc&#x27;    WM Theme: Marble-GnomeShell-blue-dark</span><br><span class="line">ccccc;MMo;ccccc;MMW.;ccccccccccccccc;     Theme: Adwaita-GTK3 [GTK2/3/4]</span><br><span class="line">ccccc;0MNc.ccc.xMMd;ccccccccccccccc;      Icons: Flat-Remix-Blue-Light [GTK2/3/4]</span><br><span class="line">cccccc;dNMWXXXWM0:;cccccccccccccc:,       Font: Inter (12pt) [GTK2/3/4]</span><br><span class="line">cccccccc;.:odl:.;cccccccccccccc:,.        Cursor: Adwaita (24px)</span><br><span class="line">ccccccccccccccccccccccccccccc:&#x27;.          Terminal: GNOME Terminal 3.54.4</span><br><span class="line">:ccccccccccccccccccccccc:;,..             Terminal Font: FiraCode Nerd Font (12pt)</span><br><span class="line"> &#x27;:cccccccccccccccc::;,.                  CPU: 11th Gen Intel(R) Core(TM) i5-1155G7 (8) @ 4.50 GHz</span><br><span class="line">                                          GPU: Intel Iris Xe Graphics @ 1.35 GHz [Integrated]</span><br><span class="line">                                          Memory: 5.78 GiB / 15.39 GiB (38%)</span><br><span class="line">                                          Swap: 662.04 MiB / 8.00 GiB (8%)</span><br><span class="line">                                          Disk (/): 102.50 GiB / 445.54 GiB (23%) - btrfs</span><br><span class="line">                                          Local IP (wlp0s20f3): 192.168.31.86/24</span><br><span class="line">                                          Battery (AP16L5J): 99% [AC Connected]</span><br><span class="line">                                          Locale: en_US.UTF-8</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">~</span><br><span class="line">❯ gcc -v</span><br><span class="line">Using built-in specs.</span><br><span class="line">COLLECT_GCC=gcc</span><br><span class="line">COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/14/lto-wrapper</span><br><span class="line">OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa</span><br><span class="line">OFFLOAD_TARGET_DEFAULT=1</span><br><span class="line">Target: x86_64-redhat-linux</span><br><span class="line">Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,objc,obj-c++,ada,go,d,m2,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-libstdcxx-backtrace --with-libstdcxx-zoneinfo=/usr/share/zoneinfo --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl=/builddir/build/BUILD/gcc-14.2.1-build/gcc-14.2.1-20250110/obj-x86_64-redhat-linux/isl-install --enable-offload-targets=nvptx-none,amdgcn-amdhsa --enable-offload-defaulted --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=i686 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1</span><br><span class="line">Thread model: posix</span><br><span class="line">Supported LTO compression algorithms: zlib zstd</span><br><span class="line">gcc version 14.2.1 20250110 (Red Hat 14.2.1-7) (GCC)</span><br><span class="line"></span><br><span class="line">❯ qemu-system-x86_64 --version</span><br><span class="line">QEMU emulator version 9.1.3 (qemu-9.1.3-2.fc41)</span><br><span class="line">Copyright (c) 2003-2024 Fabrice Bellard and the QEMU Project developers</span><br><span class="line"></span><br><span class="line">~/mywork/kernel</span><br><span class="line">❯ ls</span><br><span class="line">busybox-1_37_0  linux-5.15.180  qemu  rootfs</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-目录安排"><a href="#2-目录安排" class="headerlink" title="2 目录安排"></a>2 目录安排</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">~/mywork/kernel</span><br><span class="line">❯ tree -L 2</span><br><span class="line">.</span><br><span class="line">├── busybox-1_37_0</span><br><span class="line"></span><br><span class="line">├── linux-5.15.180</span><br><span class="line">├── qemu</span><br><span class="line">│   ├── bzImage</span><br><span class="line">│   └── initramfs.cpio.gz</span><br><span class="line">└── rootfs</span><br><span class="line">    ├── bin</span><br><span class="line">    ├── init</span><br><span class="line">    ├── linuxrc -&gt; bin/busybox</span><br><span class="line">    ├── sbin</span><br><span class="line">    └── usr</span><br><span class="line"></span><br><span class="line">65 directories, 43 files</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-编译-kernel"><a href="#3-编译-kernel" class="headerlink" title="3 编译 kernel"></a>3 编译 kernel</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">make mrproper   # 清理</span><br><span class="line">make menuconfig # 没有特殊的配置，可以去掉声卡的驱动支持</span><br><span class="line">make -j4        # 4线程编译</span><br><span class="line">                # 成功后， 拷贝 arch/x86/boot/bzImage 到 qemu 文件夹</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-编辑-busybox"><a href="#4-编辑-busybox" class="headerlink" title="4 编辑 busybox"></a>4 编辑 busybox</h2><p>编辑成静态的bosybox，去掉 tc.c 的文件，这个文件不能和大于 6.8 的 kernel 一同编译。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Linux kernel 6.8 removed a number of traffic control related symbols from</span><br><span class="line">include/uapi/linux/pkt_sched.h [1]. When using kernel 6.8 headers, compilation</span><br><span class="line">of tc.c fails with:</span><br><span class="line"></span><br><span class="line">networking/tc.c: In function ‘cbq_print_opt’:</span><br><span class="line">networking/tc.c:236:27: error: ‘TCA_CBQ_MAX’ undeclared (first use in this</span><br><span class="line">function); did you mean ‘TCA_CBS_MAX’?</span><br><span class="line">  236 |         struct rtattr *tb[TCA_CBQ_MAX+1];</span><br><span class="line">      |                           ^~~~~~~~~~~</span><br><span class="line">      |                           TCA_CBS_MAX</span><br><span class="line"></span><br><span class="line">[1] https://lore.kernel.org/all/20231223140154.1319084-1-jhs@mojatatu.com/T/</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/04/12/Start-kernel-and-rootfs-within-qemu/excludes_tc_file.png"></p>
+<p><img src="/2025/04/12/Start-kernel-and-rootfs-within-qemu/busybox_static.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">make mrproper</span><br><span class="line">make menuconfig</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>拷贝 <code>_install</code> 下的全部文件到 <code>rootfs</code> 下面</p>
+<h2 id="5-生成-rootfs"><a href="#5-生成-rootfs" class="headerlink" title="5 生成 rootfs"></a>5 生成 rootfs</h2><p>rootfs 文件下新建 init 文件，写入内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/busybox sh</span><br><span class="line"></span><br><span class="line">/bin/busybox mkdir -p /proc &amp;&amp; /bin/busybox mount -t proc none /proc</span><br><span class="line"></span><br><span class="line">/bin/busybox echo &quot;Hello world!&quot;</span><br><span class="line"></span><br><span class="line">export PS1=&#x27;(kernle) =&gt;&#x27;</span><br><span class="line"></span><br><span class="line">/bin/busybox sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x init</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mywork/kernel/rootfs</span><br><span class="line">❯ tree -L 1</span><br><span class="line">.</span><br><span class="line">├── bin</span><br><span class="line">├── init</span><br><span class="line">├── linuxrc -&gt; bin/busybox</span><br><span class="line">├── sbin</span><br><span class="line">└── usr</span><br><span class="line"></span><br><span class="line">4 directories, 2 files</span><br><span class="line"></span><br><span class="line">mywork/kernel/rootfs</span><br><span class="line">❯ find . -print0 | cpio -ov --null --format=newc | gzip -9 &gt; ../qemu/initramfs.cpio.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-启动-qemu"><a href="#6-启动-qemu" class="headerlink" title="6 启动 qemu"></a>6 启动 qemu</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mywork/kernel/qemu</span><br><span class="line">❯ tree</span><br><span class="line">.</span><br><span class="line">├── bzImage</span><br><span class="line">└── initramfs.cpio.gz</span><br><span class="line"></span><br><span class="line">1 directory, 2 files</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mywork/kernel/qemu</span><br><span class="line">❯ qemu-system-x86_64 -kernel ./bzImage -initrd ./initramfs.cpio.gz -m 1G -append &quot;console=ttyS0&quot; -nographic</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">[    0.000000] Linux version 5.15.180 (zyuan@matebook) (gcc (GCC) 14.2.1 20250110 (Red Hat 14.2.1-7), GNU ld version 2.43.1-5.fc41) #2 SMP Sat Apr 12 15:43:13 CST 2025</span><br><span class="line">[    0.000000] Command line: console=ttyS0</span><br><span class="line">[    0.000000] BIOS-provided physical RAM map:</span><br><span class="line">[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable</span><br><span class="line">[    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved</span><br><span class="line">[    0.000000] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff] reserved</span><br><span class="line">[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000003ffdffff] usable</span><br><span class="line">[    0.000000] BIOS-e820: [mem 0x000000003ffe0000-0x000000003fffffff] reserved</span><br><span class="line">[    0.000000] BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff] reserved</span><br><span class="line">[    0.000000] BIOS-e820: [mem 0x000000fd00000000-0x000000ffffffffff] reserved</span><br><span class="line">[    0.000000] NX (Execute Disable) protection: active</span><br><span class="line">[    0.000000] SMBIOS 2.8 present.</span><br><span class="line">......</span><br><span class="line">[    2.055352] PM:   Magic number: 5:56:837</span><br><span class="line">[    2.056260] RAS: Correctable Errors collector initialized.</span><br><span class="line">[    2.057524] clk: Disabling unused clocks</span><br><span class="line">[    2.119959] ata2.00: ATAPI: QEMU DVD-ROM, 2.5+, max UDMA/100</span><br><span class="line">[    2.133881] scsi 1:0:0:0: CD-ROM            QEMU     QEMU DVD-ROM     2.5+ PQ: 0 ANSI: 5</span><br><span class="line">[    2.154184] sr 1:0:0:0: [sr0] scsi3-mmc drive: 4x/4x cd/rw xa/form2 tray</span><br><span class="line">[    2.154589] cdrom: Uniform CD-ROM driver Revision: 3.20</span><br><span class="line">[    2.175824] sr 1:0:0:0: Attached scsi generic sg0 type 5</span><br><span class="line">[    2.185060] Freeing unused decrypted memory: 2036K</span><br><span class="line">[    2.244070] Freeing unused kernel image (initmem) memory: 3208K</span><br><span class="line">[    2.244465] Write protecting the kernel read-only data: 34816k</span><br><span class="line">[    2.246691] Freeing unused kernel image (text/rodata gap) memory: 2036K</span><br><span class="line">[    2.247947] Freeing unused kernel image (rodata/data gap) memory: 1860K</span><br><span class="line">[    2.445405] x86/mm: Checked W+X mappings: passed, no W+X pages found.</span><br><span class="line">[    2.445809] Run /init as init process</span><br><span class="line">Hello world!</span><br><span class="line">sh: can&#x27;t access tty; job control turned off</span><br><span class="line">(kernle) =&gt;[    2.794868] tsc: Refined TSC clocksource calibration: 2495.967 MHz</span><br><span class="line">[    2.795611] clocksource: tsc: mask: 0xffffffffffffffff max_cycles: 0x23fa57e3ae7, max_idle_ns: 440795241954 ns</span><br><span class="line">[    2.796305] clocksource: Switched to clocksource tsc</span><br><span class="line">[    3.092059] input: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input3</span><br><span class="line"></span><br><span class="line">(kernle) =&gt;</span><br><span class="line">(kernle) =&gt;</span><br><span class="line">(kernle) =&gt;ps</span><br><span class="line">PID   USER     TIME  COMMAND</span><br><span class="line">    1 0         0:00 &#123;init&#125; /bin/busybox sh /init</span><br><span class="line">    2 0         0:00 [kthreadd]</span><br><span class="line">    3 0         0:00 [rcu_gp]</span><br><span class="line">    4 0         0:00 [rcu_par_gp]</span><br><span class="line">    5 0         0:00 [slub_flushwq]</span><br><span class="line">    6 0         0:00 [netns]</span><br><span class="line">    7 0         0:00 [kworker/0:0-ata]</span><br><span class="line">    8 0         0:00 [kworker/0:0H-ev]</span><br><span class="line">    9 0         0:00 [kworker/u2:0-ev]</span><br><span class="line">   10 0         0:00 [mm_percpu_wq]</span><br><span class="line">   11 0         0:00 [kworker/u2:1-ev]</span><br><span class="line">   12 0         0:00 [rcu_tasks_kthre]</span><br><span class="line">   13 0         0:00 [rcu_tasks_rude_]</span><br><span class="line">   14 0         0:00 [rcu_tasks_trace]</span><br><span class="line">   15 0         0:00 [ksoftirqd/0]</span><br></pre></td></tr></table></figure>
+
+<p>-nographic does the same as “-serial stdio” and also hides a QEMU’s graphical window.</p>
+<p>-append “console&#x3D;ttyS0”: console&#x3D;ttyS0 forces the guest kernel to send output to the first UART serial port ttyS0, which is redirected to the host by the -serial stdio option.</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><p><a target="_blank" rel="noopener" href="https://fadeevab.com/how-to-setup-qemu-output-to-console-and-automate-using-shell-script/">How to Setup QEMU Output to Console and Automate Using Shell Script</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Kd4y1R7tV?spm_id_from=333.788.videopod.sections&vd_source=572192679744be9d67bc1379425716a7">Linux Kernel 从编译内核、制作 initramfs 到使用 QEMU 运行内核</a></p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://zhydong258.github.io/2024/02/23/%E7%AE%A1%E7%90%86%E8%87%AA%E5%B7%B1%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -186,7 +319,7 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 个人交互外壳">
+      <meta itemprop="name" content=" | 个人交互外壳">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -293,7 +426,7 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 个人交互外壳">
+      <meta itemprop="name" content=" | 个人交互外壳">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -418,7 +551,7 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 个人交互外壳">
+      <meta itemprop="name" content=" | 个人交互外壳">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -552,7 +685,7 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 个人交互外壳">
+      <meta itemprop="name" content=" | 个人交互外壳">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -734,7 +867,7 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 个人交互外壳">
+      <meta itemprop="name" content=" | 个人交互外壳">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -868,7 +1001,7 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 个人交互外壳">
+      <meta itemprop="name" content=" | 个人交互外壳">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -985,7 +1118,7 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 个人交互外壳">
+      <meta itemprop="name" content=" | 个人交互外壳">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -1098,7 +1231,7 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 个人交互外壳">
+      <meta itemprop="name" content=" | 个人交互外壳">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -1205,7 +1338,7 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 个人交互外壳">
+      <meta itemprop="name" content=" | 个人交互外壳">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -1312,109 +1445,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://zhydong258.github.io/2016/12/11/jekyll-comments/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar/octacat.gif">
-      <meta itemprop="name" content="Zhiyuan">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人交互外壳">
-      <meta itemprop="description" content="Personal Interactive Shell 阅读不会带来改变，思考才会；思考不会带来改变，写作才会；">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 个人交互外壳">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2016/12/11/jekyll-comments/" class="post-title-link" itemprop="url">Jekyll Comments</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2016-12-11 16:52:54" itemprop="dateCreated datePublished" datetime="2016-12-11T16:52:54+00:00">2016-12-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-08-17 10:40:47" itemprop="dateModified" datetime="2022-08-17T10:40:47+00:00">2022-08-17</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="Jekyll添加评论系统"><a href="#Jekyll添加评论系统" class="headerlink" title="Jekyll添加评论系统"></a>Jekyll添加评论系统</h2><p>搭建在github上的blog，需要一个comments的系统。话说，用的可能性不大，不过看别人有，所以自己也就添加了一个。</p>
-<h2 id="duoshuo"><a href="#duoshuo" class="headerlink" title="duoshuo"></a>duoshuo</h2><p>评论是用的多说，国产的还是比较适合国内的环境，在<a target="_blank" rel="noopener" href="https://duoshuo.com/">多说</a>上注册一个账号。填上你的网站名称和地址，<br>填上一个short-name，最后会给出参考的代码，通用代码就行。</p>
-<h2 id="配置jekyll"><a href="#配置jekyll" class="headerlink" title="配置jekyll"></a>配置jekyll</h2><p>jekyll默认的comments是 disqus系统，打开_config.yml文件，修改comments的provider为duoshuo，修改short-name。</p>
-<h2 id="需改JB的提供的duoshuo代码"><a href="#需改JB的提供的duoshuo代码" class="headerlink" title="需改JB的提供的duoshuo代码"></a>需改JB的提供的duoshuo代码</h2><p>打开_include&#x2F;JB&#x2F;comments-providers&#x2F;duoshuo，把多说网站提供的通用代码粘贴进来，覆盖掉原来的代码。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 多说评论框 start --&gt;</span><br><span class="line">	<span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ds-thread&quot;</span> <span class="attr">data-thread-key</span>=<span class="string">&quot;&#123;&#123; page.id &#125;&#125;&quot;</span> <span class="attr">data-title</span>=<span class="string">&quot;&#123;&#123; page.title &#125;&#125;&quot;</span> <span class="attr">data-url</span>=<span class="string">&quot;&#123;&#123; site.url&#125;&#125;&#123;&#123; page.url &#125;&#125;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;!-- 多说评论框 end --&gt;</span><br><span class="line">&lt;!-- 多说公共<span class="variable constant_">JS</span>代码 start (一个网页只需插入一次) --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">var</span> duoshuoQuery = &#123;<span class="attr">short_name</span>:<span class="string">&#x27;&#123;&#123; site.JB.comments.duoshuo.short_name &#125;&#125;&#x27;</span>&#125;;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">	(<span class="keyword">function</span>(<span class="params"></span>) &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">		<span class="keyword">var</span> ds = <span class="variable language_">document</span>.<span class="title function_">createElement</span>(<span class="string">&#x27;script&#x27;</span>);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">		ds.<span class="property">type</span> = <span class="string">&#x27;text/javascript&#x27;</span>;ds.<span class="property">async</span> = <span class="literal">true</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">		ds.<span class="property">src</span> = (<span class="variable language_">document</span>.<span class="property">location</span>.<span class="property">protocol</span> == <span class="string">&#x27;https:&#x27;</span> ? <span class="string">&#x27;https:&#x27;</span> : <span class="string">&#x27;http:&#x27;</span>) + <span class="string">&#x27;//static.duoshuo.com/embed.js&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">		ds.<span class="property">charset</span> = <span class="string">&#x27;UTF-8&#x27;</span>;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">		(<span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;head&#x27;</span>)[<span class="number">0</span>] </span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">		 || <span class="variable language_">document</span>.<span class="title function_">getElementsByTagName</span>(<span class="string">&#x27;body&#x27;</span>)[<span class="number">0</span>]).<span class="title function_">appendChild</span>(ds);</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">	&#125;)();</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;!-- 多说公共<span class="variable constant_">JS</span>代码 end --&gt;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
@@ -1427,7 +1457,7 @@
 
   <div class="copyright">
     &copy; 2016 – 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
@@ -1439,14 +1469,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">19k</span>
+    <span title="站点总字数">27k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">18 分钟</span>
+    <span title="站点阅读时长">24 分钟</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
@@ -1471,24 +1501,6 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
-
-
-  
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
-
-  
-
-
-
-
-
-
-  
-
-
-
-
 
 </body>
 </html>

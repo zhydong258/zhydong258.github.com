@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.7.2/css/all.min.css" integrity="sha256-dABdfBfUoC8vJUBOwGVdm8L9qlMWaHTIfXt+7GnZCIo=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhydong258.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.23.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"tomorrow-night"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="1 Fedora gcc qemu kernel busybox 版本12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152❯ fastfetch             .&amp;#x27;,;::::;,&amp;#x27;.                 zyuan@m">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Start kernel and rootfs within qemu">
+<meta property="og:url" content="https://zhydong258.github.io/2025/04/12/Start-kernel-and-rootfs-within-qemu/index.html">
+<meta property="og:site_name" content="个人交互外壳">
+<meta property="og:description" content="1 Fedora gcc qemu kernel busybox 版本12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152❯ fastfetch             .&amp;#x27;,;::::;,&amp;#x27;.                 zyuan@m">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://zhydong258.github.io/2025/04/12/Start-kernel-and-rootfs-within-qemu/excludes_tc_file.png">
+<meta property="og:image" content="https://zhydong258.github.io/2025/04/12/Start-kernel-and-rootfs-within-qemu/busybox_static.png">
+<meta property="article:published_time" content="2025-04-12T20:26:41.000Z">
+<meta property="article:modified_time" content="2025-04-12T14:14:56.000Z">
+<meta property="article:author" content="Zhiyuan">
+<meta property="article:tag" content="kernel">
+<meta property="article:tag" content="rootfs">
+<meta property="article:tag" content="qemu">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zhydong258.github.io/2025/04/12/Start-kernel-and-rootfs-within-qemu/excludes_tc_file.png">
+
+
+<link rel="canonical" href="https://zhydong258.github.io/2025/04/12/Start-kernel-and-rootfs-within-qemu/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhydong258.github.io/2025/04/12/Start-kernel-and-rootfs-within-qemu/","path":"2025/04/12/Start-kernel-and-rootfs-within-qemu/","title":"Start kernel and rootfs within qemu"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Start kernel and rootfs within qemu | 个人交互外壳</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">个人交互外壳</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Read, Think, Write and Loop</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Fedora-gcc-qemu-kernel-busybox-%E7%89%88%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">1 Fedora gcc qemu kernel busybox 版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E7%9B%AE%E5%BD%95%E5%AE%89%E6%8E%92"><span class="nav-number">2.</span> <span class="nav-text">2 目录安排</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E7%BC%96%E8%AF%91-kernel"><span class="nav-number">3.</span> <span class="nav-text">3 编译 kernel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%BC%96%E8%BE%91-busybox"><span class="nav-number">4.</span> <span class="nav-text">4 编辑 busybox</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E7%94%9F%E6%88%90-rootfs"><span class="nav-number">5.</span> <span class="nav-text">5 生成 rootfs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E5%90%AF%E5%8A%A8-qemu"><span class="nav-number">6.</span> <span class="nav-text">6 启动 qemu</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="nav-number">7.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zhiyuan"
+      src="/uploads/avatar/octacat.gif">
+  <p class="site-author-name" itemprop="name">Zhiyuan</p>
+  <div class="site-description" itemprop="description">Personal Interactive Shell 阅读不会带来改变，思考才会；思考不会带来改变，写作才会；</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/zhydong258" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhydong258" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:zhydong258@gmail.com" title="E-Mail → mailto:zhydong258@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/zhydong258" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;zhydong258" rel="noopener me" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhydong258.github.io/2025/04/12/Start-kernel-and-rootfs-within-qemu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar/octacat.gif">
+      <meta itemprop="name" content="Zhiyuan">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人交互外壳">
+      <meta itemprop="description" content="Personal Interactive Shell 阅读不会带来改变，思考才会；思考不会带来改变，写作才会；">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Start kernel and rootfs within qemu | 个人交互外壳">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Start kernel and rootfs within qemu
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2025-04-12 20:26:41 / 修改时间：14:14:56" itemprop="dateCreated datePublished" datetime="2025-04-12T20:26:41+00:00">2025-04-12</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="1-Fedora-gcc-qemu-kernel-busybox-版本"><a href="#1-Fedora-gcc-qemu-kernel-busybox-版本" class="headerlink" title="1 Fedora gcc qemu kernel busybox 版本"></a>1 Fedora gcc qemu kernel busybox 版本</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">❯ fastfetch</span><br><span class="line">             .&#x27;,;::::;,&#x27;.                 zyuan@matebook</span><br><span class="line">         .&#x27;;:cccccccccccc:;,.             --------------</span><br><span class="line">      .;cccccccccccccccccccccc;.          OS: Fedora Linux 41 (Workstation Edition) x86_64</span><br><span class="line">    .:cccccccccccccccccccccccccc:.        Host: MRG-WXX (M1010)</span><br><span class="line">  .;ccccccccccccc;.:dddl:.;ccccccc;.      Kernel: Linux 6.13.10-200.fc41.x86_64</span><br><span class="line"> .:ccccccccccccc;OWMKOOXMWd;ccccccc:.     Uptime: 6 hours, 56 mins</span><br><span class="line">.:ccccccccccccc;KMMc;cc;xMMc;ccccccc:.    Packages: 2258 (rpm), 15 (flatpak)</span><br><span class="line">,cccccccccccccc;MMM.;cc;;WW:;cccccccc,    Shell: bash 5.2.32</span><br><span class="line">:cccccccccccccc;MMM.;cccccccccccccccc:    Display (CSO1408): 3120x2080 @ 90 Hz (as 1782x1188) in 14&quot; [Built-in]</span><br><span class="line">:ccccccc;oxOOOo;MMM000k.;cccccccccccc:    DE: GNOME 47.5</span><br><span class="line">cccccc;0MMKxdd:;MMMkddc.;cccccccccccc;    WM: Mutter (Wayland)</span><br><span class="line">ccccc;XMO&#x27;;cccc;MMM.;cccccccccccccccc&#x27;    WM Theme: Marble-GnomeShell-blue-dark</span><br><span class="line">ccccc;MMo;ccccc;MMW.;ccccccccccccccc;     Theme: Adwaita-GTK3 [GTK2/3/4]</span><br><span class="line">ccccc;0MNc.ccc.xMMd;ccccccccccccccc;      Icons: Flat-Remix-Blue-Light [GTK2/3/4]</span><br><span class="line">cccccc;dNMWXXXWM0:;cccccccccccccc:,       Font: Inter (12pt) [GTK2/3/4]</span><br><span class="line">cccccccc;.:odl:.;cccccccccccccc:,.        Cursor: Adwaita (24px)</span><br><span class="line">ccccccccccccccccccccccccccccc:&#x27;.          Terminal: GNOME Terminal 3.54.4</span><br><span class="line">:ccccccccccccccccccccccc:;,..             Terminal Font: FiraCode Nerd Font (12pt)</span><br><span class="line"> &#x27;:cccccccccccccccc::;,.                  CPU: 11th Gen Intel(R) Core(TM) i5-1155G7 (8) @ 4.50 GHz</span><br><span class="line">                                          GPU: Intel Iris Xe Graphics @ 1.35 GHz [Integrated]</span><br><span class="line">                                          Memory: 5.78 GiB / 15.39 GiB (38%)</span><br><span class="line">                                          Swap: 662.04 MiB / 8.00 GiB (8%)</span><br><span class="line">                                          Disk (/): 102.50 GiB / 445.54 GiB (23%) - btrfs</span><br><span class="line">                                          Local IP (wlp0s20f3): 192.168.31.86/24</span><br><span class="line">                                          Battery (AP16L5J): 99% [AC Connected]</span><br><span class="line">                                          Locale: en_US.UTF-8</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">~</span><br><span class="line">❯ gcc -v</span><br><span class="line">Using built-in specs.</span><br><span class="line">COLLECT_GCC=gcc</span><br><span class="line">COLLECT_LTO_WRAPPER=/usr/libexec/gcc/x86_64-redhat-linux/14/lto-wrapper</span><br><span class="line">OFFLOAD_TARGET_NAMES=nvptx-none:amdgcn-amdhsa</span><br><span class="line">OFFLOAD_TARGET_DEFAULT=1</span><br><span class="line">Target: x86_64-redhat-linux</span><br><span class="line">Configured with: ../configure --enable-bootstrap --enable-languages=c,c++,fortran,objc,obj-c++,ada,go,d,m2,lto --prefix=/usr --mandir=/usr/share/man --infodir=/usr/share/info --with-bugurl=http://bugzilla.redhat.com/bugzilla --enable-shared --enable-threads=posix --enable-checking=release --enable-multilib --with-system-zlib --enable-__cxa_atexit --disable-libunwind-exceptions --enable-gnu-unique-object --enable-linker-build-id --with-gcc-major-version-only --enable-libstdcxx-backtrace --with-libstdcxx-zoneinfo=/usr/share/zoneinfo --with-linker-hash-style=gnu --enable-plugin --enable-initfini-array --with-isl=/builddir/build/BUILD/gcc-14.2.1-build/gcc-14.2.1-20250110/obj-x86_64-redhat-linux/isl-install --enable-offload-targets=nvptx-none,amdgcn-amdhsa --enable-offload-defaulted --without-cuda-driver --enable-gnu-indirect-function --enable-cet --with-tune=generic --with-arch_32=i686 --build=x86_64-redhat-linux --with-build-config=bootstrap-lto --enable-link-serialization=1</span><br><span class="line">Thread model: posix</span><br><span class="line">Supported LTO compression algorithms: zlib zstd</span><br><span class="line">gcc version 14.2.1 20250110 (Red Hat 14.2.1-7) (GCC)</span><br><span class="line"></span><br><span class="line">❯ qemu-system-x86_64 --version</span><br><span class="line">QEMU emulator version 9.1.3 (qemu-9.1.3-2.fc41)</span><br><span class="line">Copyright (c) 2003-2024 Fabrice Bellard and the QEMU Project developers</span><br><span class="line"></span><br><span class="line">~/mywork/kernel</span><br><span class="line">❯ ls</span><br><span class="line">busybox-1_37_0  linux-5.15.180  qemu  rootfs</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="2-目录安排"><a href="#2-目录安排" class="headerlink" title="2 目录安排"></a>2 目录安排</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">~/mywork/kernel</span><br><span class="line">❯ tree -L 2</span><br><span class="line">.</span><br><span class="line">├── busybox-1_37_0</span><br><span class="line"></span><br><span class="line">├── linux-5.15.180</span><br><span class="line">├── qemu</span><br><span class="line">│   ├── bzImage</span><br><span class="line">│   └── initramfs.cpio.gz</span><br><span class="line">└── rootfs</span><br><span class="line">    ├── bin</span><br><span class="line">    ├── init</span><br><span class="line">    ├── linuxrc -&gt; bin/busybox</span><br><span class="line">    ├── sbin</span><br><span class="line">    └── usr</span><br><span class="line"></span><br><span class="line">65 directories, 43 files</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-编译-kernel"><a href="#3-编译-kernel" class="headerlink" title="3 编译 kernel"></a>3 编译 kernel</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">make mrproper   # 清理</span><br><span class="line">make menuconfig # 没有特殊的配置，可以去掉声卡的驱动支持</span><br><span class="line">make -j4        # 4线程编译</span><br><span class="line">                # 成功后， 拷贝 arch/x86/boot/bzImage 到 qemu 文件夹</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-编辑-busybox"><a href="#4-编辑-busybox" class="headerlink" title="4 编辑 busybox"></a>4 编辑 busybox</h2><p>编辑成静态的bosybox，去掉 tc.c 的文件，这个文件不能和大于 6.8 的 kernel 一同编译。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Linux kernel 6.8 removed a number of traffic control related symbols from</span><br><span class="line">include/uapi/linux/pkt_sched.h [1]. When using kernel 6.8 headers, compilation</span><br><span class="line">of tc.c fails with:</span><br><span class="line"></span><br><span class="line">networking/tc.c: In function ‘cbq_print_opt’:</span><br><span class="line">networking/tc.c:236:27: error: ‘TCA_CBQ_MAX’ undeclared (first use in this</span><br><span class="line">function); did you mean ‘TCA_CBS_MAX’?</span><br><span class="line">  236 |         struct rtattr *tb[TCA_CBQ_MAX+1];</span><br><span class="line">      |                           ^~~~~~~~~~~</span><br><span class="line">      |                           TCA_CBS_MAX</span><br><span class="line"></span><br><span class="line">[1] https://lore.kernel.org/all/20231223140154.1319084-1-jhs@mojatatu.com/T/</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/04/12/Start-kernel-and-rootfs-within-qemu/excludes_tc_file.png"></p>
+<p><img src="/2025/04/12/Start-kernel-and-rootfs-within-qemu/busybox_static.png"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">make mrproper</span><br><span class="line">make menuconfig</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>拷贝 <code>_install</code> 下的全部文件到 <code>rootfs</code> 下面</p>
+<h2 id="5-生成-rootfs"><a href="#5-生成-rootfs" class="headerlink" title="5 生成 rootfs"></a>5 生成 rootfs</h2><p>rootfs 文件下新建 init 文件，写入内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/busybox sh</span><br><span class="line"></span><br><span class="line">/bin/busybox mkdir -p /proc &amp;&amp; /bin/busybox mount -t proc none /proc</span><br><span class="line"></span><br><span class="line">/bin/busybox echo &quot;Hello world!&quot;</span><br><span class="line"></span><br><span class="line">export PS1=&#x27;(kernle) =&gt;&#x27;</span><br><span class="line"></span><br><span class="line">/bin/busybox sh</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +x init</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mywork/kernel/rootfs</span><br><span class="line">❯ tree -L 1</span><br><span class="line">.</span><br><span class="line">├── bin</span><br><span class="line">├── init</span><br><span class="line">├── linuxrc -&gt; bin/busybox</span><br><span class="line">├── sbin</span><br><span class="line">└── usr</span><br><span class="line"></span><br><span class="line">4 directories, 2 files</span><br><span class="line"></span><br><span class="line">mywork/kernel/rootfs</span><br><span class="line">❯ find . -print0 | cpio -ov --null --format=newc | gzip -9 &gt; ../qemu/initramfs.cpio.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-启动-qemu"><a href="#6-启动-qemu" class="headerlink" title="6 启动 qemu"></a>6 启动 qemu</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mywork/kernel/qemu</span><br><span class="line">❯ tree</span><br><span class="line">.</span><br><span class="line">├── bzImage</span><br><span class="line">└── initramfs.cpio.gz</span><br><span class="line"></span><br><span class="line">1 directory, 2 files</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mywork/kernel/qemu</span><br><span class="line">❯ qemu-system-x86_64 -kernel ./bzImage -initrd ./initramfs.cpio.gz -m 1G -append &quot;console=ttyS0&quot; -nographic</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">[    0.000000] Linux version 5.15.180 (zyuan@matebook) (gcc (GCC) 14.2.1 20250110 (Red Hat 14.2.1-7), GNU ld version 2.43.1-5.fc41) #2 SMP Sat Apr 12 15:43:13 CST 2025</span><br><span class="line">[    0.000000] Command line: console=ttyS0</span><br><span class="line">[    0.000000] BIOS-provided physical RAM map:</span><br><span class="line">[    0.000000] BIOS-e820: [mem 0x0000000000000000-0x000000000009fbff] usable</span><br><span class="line">[    0.000000] BIOS-e820: [mem 0x000000000009fc00-0x000000000009ffff] reserved</span><br><span class="line">[    0.000000] BIOS-e820: [mem 0x00000000000f0000-0x00000000000fffff] reserved</span><br><span class="line">[    0.000000] BIOS-e820: [mem 0x0000000000100000-0x000000003ffdffff] usable</span><br><span class="line">[    0.000000] BIOS-e820: [mem 0x000000003ffe0000-0x000000003fffffff] reserved</span><br><span class="line">[    0.000000] BIOS-e820: [mem 0x00000000fffc0000-0x00000000ffffffff] reserved</span><br><span class="line">[    0.000000] BIOS-e820: [mem 0x000000fd00000000-0x000000ffffffffff] reserved</span><br><span class="line">[    0.000000] NX (Execute Disable) protection: active</span><br><span class="line">[    0.000000] SMBIOS 2.8 present.</span><br><span class="line">......</span><br><span class="line">[    2.055352] PM:   Magic number: 5:56:837</span><br><span class="line">[    2.056260] RAS: Correctable Errors collector initialized.</span><br><span class="line">[    2.057524] clk: Disabling unused clocks</span><br><span class="line">[    2.119959] ata2.00: ATAPI: QEMU DVD-ROM, 2.5+, max UDMA/100</span><br><span class="line">[    2.133881] scsi 1:0:0:0: CD-ROM            QEMU     QEMU DVD-ROM     2.5+ PQ: 0 ANSI: 5</span><br><span class="line">[    2.154184] sr 1:0:0:0: [sr0] scsi3-mmc drive: 4x/4x cd/rw xa/form2 tray</span><br><span class="line">[    2.154589] cdrom: Uniform CD-ROM driver Revision: 3.20</span><br><span class="line">[    2.175824] sr 1:0:0:0: Attached scsi generic sg0 type 5</span><br><span class="line">[    2.185060] Freeing unused decrypted memory: 2036K</span><br><span class="line">[    2.244070] Freeing unused kernel image (initmem) memory: 3208K</span><br><span class="line">[    2.244465] Write protecting the kernel read-only data: 34816k</span><br><span class="line">[    2.246691] Freeing unused kernel image (text/rodata gap) memory: 2036K</span><br><span class="line">[    2.247947] Freeing unused kernel image (rodata/data gap) memory: 1860K</span><br><span class="line">[    2.445405] x86/mm: Checked W+X mappings: passed, no W+X pages found.</span><br><span class="line">[    2.445809] Run /init as init process</span><br><span class="line">Hello world!</span><br><span class="line">sh: can&#x27;t access tty; job control turned off</span><br><span class="line">(kernle) =&gt;[    2.794868] tsc: Refined TSC clocksource calibration: 2495.967 MHz</span><br><span class="line">[    2.795611] clocksource: tsc: mask: 0xffffffffffffffff max_cycles: 0x23fa57e3ae7, max_idle_ns: 440795241954 ns</span><br><span class="line">[    2.796305] clocksource: Switched to clocksource tsc</span><br><span class="line">[    3.092059] input: ImExPS/2 Generic Explorer Mouse as /devices/platform/i8042/serio1/input/input3</span><br><span class="line"></span><br><span class="line">(kernle) =&gt;</span><br><span class="line">(kernle) =&gt;</span><br><span class="line">(kernle) =&gt;ps</span><br><span class="line">PID   USER     TIME  COMMAND</span><br><span class="line">    1 0         0:00 &#123;init&#125; /bin/busybox sh /init</span><br><span class="line">    2 0         0:00 [kthreadd]</span><br><span class="line">    3 0         0:00 [rcu_gp]</span><br><span class="line">    4 0         0:00 [rcu_par_gp]</span><br><span class="line">    5 0         0:00 [slub_flushwq]</span><br><span class="line">    6 0         0:00 [netns]</span><br><span class="line">    7 0         0:00 [kworker/0:0-ata]</span><br><span class="line">    8 0         0:00 [kworker/0:0H-ev]</span><br><span class="line">    9 0         0:00 [kworker/u2:0-ev]</span><br><span class="line">   10 0         0:00 [mm_percpu_wq]</span><br><span class="line">   11 0         0:00 [kworker/u2:1-ev]</span><br><span class="line">   12 0         0:00 [rcu_tasks_kthre]</span><br><span class="line">   13 0         0:00 [rcu_tasks_rude_]</span><br><span class="line">   14 0         0:00 [rcu_tasks_trace]</span><br><span class="line">   15 0         0:00 [ksoftirqd/0]</span><br></pre></td></tr></table></figure>
+
+<p>-nographic does the same as “-serial stdio” and also hides a QEMU’s graphical window.</p>
+<p>-append “console&#x3D;ttyS0”: console&#x3D;ttyS0 forces the guest kernel to send output to the first UART serial port ttyS0, which is redirected to the host by the -serial stdio option.</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
+<li><p><a target="_blank" rel="noopener" href="https://fadeevab.com/how-to-setup-qemu-output-to-console-and-automate-using-shell-script/">How to Setup QEMU Output to Console and Automate Using Shell Script</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Kd4y1R7tV?spm_id_from=333.788.videopod.sections&vd_source=572192679744be9d67bc1379425716a7">Linux Kernel 从编译内核、制作 initramfs 到使用 QEMU 运行内核</a></p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Zhiyuan
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://zhydong258.github.io/2025/04/12/Start-kernel-and-rootfs-within-qemu/" title="Start kernel and rootfs within qemu">https://zhydong258.github.io/2025/04/12/Start-kernel-and-rootfs-within-qemu/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/kernel/" rel="tag"># kernel</a>
+              <a href="/tags/rootfs/" rel="tag"># rootfs</a>
+              <a href="/tags/qemu/" rel="tag"># qemu</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/02/23/%E7%AE%A1%E7%90%86%E8%87%AA%E5%B7%B1%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" rel="prev" title="管理自己的配置文件">
+                  <i class="fa fa-angle-left"></i> 管理自己的配置文件
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2016 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Zhiyuan</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">27k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">24 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
